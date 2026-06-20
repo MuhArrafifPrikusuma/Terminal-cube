@@ -1,1 +1,0 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/tuiDash.dir/link.d CMakeFiles/tuiDash.dir/main.c.o CMakeFiles/tuiDash.dir/logicHandler/logic.c.o -o tuiDash  -lcurses -lform

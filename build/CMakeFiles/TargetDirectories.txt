@@ -1,3 +1,0 @@
-/home/duck/Games/tuiDash/build/CMakeFiles/tuiDash.dir
-/home/duck/Games/tuiDash/build/CMakeFiles/edit_cache.dir
-/home/duck/Games/tuiDash/build/CMakeFiles/rebuild_cache.dir
