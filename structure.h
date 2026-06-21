@@ -17,7 +17,6 @@ typedef struct {
   double y;
 
   // don't move player horizontally move the object instead
-  double speed;
   double velocity_y;
 
   int width;
