@@ -133,31 +133,18 @@ void handleCollision(Player *p, Object *o) {
     if (o[i].width == 0 || o[i].x < -5)
       continue;
 
-    double pRight = p->x + p->width;
-    double prev_block_Left = o[i].x + SCROLL_SPEED;
-
     double player_bottom = p->y + p->height;
     double previous_bottom_position = player_bottom - p->velocity_y;
 
-    double prev_player_right = pRight - SCROLL_SPEED;
-
     if (checkCollision(p, &o[i])) {
-      // if (pRight > prev_block_Left && p->x < prev_block_Left) {
-      //   p->state.is_dead = true;
-      //   continue;
-      // }
 
       switch ((int)o[i].type) {
       case BLOCK:
-        // FIX: make it so that it dies when it touches the side of a block
-        // instead of just passing through and only died when you jump
         if (p->velocity_y >= 0 && previous_bottom_position <= o[i].y + 1) {
           p->y = o[i].y - p->height;
 
           p->velocity_y = 0;
           found_Platform = true;
-        } else if (prev_player_right >= prev_block_Left) {
-          p->state.is_dead = true;
         } else
           p->state.is_dead = true;
         break;
