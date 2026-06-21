@@ -3,6 +3,7 @@
 #include <ncurses.h>
 #include <panel.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <unistd.h>
 
 #define FRAME_CAP 10667
@@ -40,7 +41,8 @@ int main(int argc, char *argv[]) {
 
     usleep(FRAME_CAP);
   }
-  getch();
+  delwin(player.win);
   endwin();
+
   return 0;
 }
