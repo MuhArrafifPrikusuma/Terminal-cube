@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-#define FRAME_CAP 16667
+#define FRAME_CAP 10667
 
 int main(int argc, char *argv[]) {
   initscr();
@@ -20,24 +20,23 @@ int main(int argc, char *argv[]) {
   player.height = 3;
   player.width = 5;
   player.velocity_y = 0;
-  player.speed = 0.5;
   player.state.is_dead = false;
   player.state.is_grounded = true;
 
   player.win =
       newwin(player.height, player.width, (int)player.y, (int)player.x);
 
-  Object object;
-  object.width = 5;
-  object.height = 3;
+  Object object[10] = {0};
 
   while (!player.state.is_dead) {
     int ch = getch();
 
     updatePlayer(&player, ch);
 
-    handleObj(&object);
-    render(&player, &object);
+    handleCollision(&player, object);
+    handleObj(object);
+
+    render(&player, object);
 
     usleep(FRAME_CAP);
   }
