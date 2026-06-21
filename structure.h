@@ -1,5 +1,5 @@
-#ifndef STATE_H
-#define STATE_H
+#ifndef STRUCTURE_H
+#define STRUCTURE_H
 
 #include <ncurses.h>
 #include <stdbool.h>
@@ -29,7 +29,7 @@ typedef struct {
 
 typedef enum { BLOCK, SPIKE, PLATFORM } ObjectType;
 
-typedef struct {
+typedef struct Object {
   double x;
   double y;
 

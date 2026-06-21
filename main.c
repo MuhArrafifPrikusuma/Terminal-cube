@@ -27,14 +27,21 @@ int main(int argc, char *argv[]) {
   player.win =
       newwin(player.height, player.width, (int)player.y, (int)player.x);
 
+  Object object;
+  object.width = 5;
+  object.height = 3;
+
   while (!player.state.is_dead) {
     int ch = getch();
 
     updatePlayer(&player, ch);
 
-    render(&player);
+    handleObj(&object);
+    render(&player, &object);
 
     usleep(FRAME_CAP);
   }
   getch();
+  endwin();
+  return 0;
 }
