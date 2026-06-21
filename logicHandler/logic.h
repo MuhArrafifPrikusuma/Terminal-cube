@@ -4,6 +4,7 @@
 #include "../structure.h"
 
 void updatePlayer(Player *p, int ch);
-void render(Player *p);
+void render(Player *p, Object *o);
+void handleObj(Object *o);
 
 #endif // !LOGIC_HLOGIC_H
