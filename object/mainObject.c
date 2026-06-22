@@ -1,6 +1,7 @@
 
 #include "mainObject.h"
 #include "../logicHandler/logic.h"
+#include "spike.h"
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -66,7 +67,7 @@ static void spawnObj(Object *o) {
 
       if (lastSpawn - isDouble < -9)
         return;
-      if (rand() % 100 > 5) {
+      if (rand() % 100 > 2) {
         isDouble++;
         return;
       }
@@ -76,22 +77,12 @@ static void spawnObj(Object *o) {
 
       switch (type_roll) {
       case 0:
-        // generate how many times
-        for (int j = 0; j < 1; j++) {
-          int tmpHeight = 0;
-          int tmpY = 0;
-
-          // generate height
-          for (int k = 0; k < (rand() % 2) + 1; k++) {
-            tmpHeight += 3;
-            if (k > 0)
-              tmpY += 3;
-          }
-          o[i].y = 20 - tmpY;
-          o[i].height = tmpHeight;
-          o[i].width = 5;
-          o[i].type = BLOCK;
-        }
+        spawnBlock(o, i);
+        break;
+      case 1:
+        spawnSpike(o, i);
+        break;
+      case 2:
         break;
       default:
         break;
@@ -118,6 +109,9 @@ void handleObj(Object *o) {
       switch ((int)o[i].type) {
       case BLOCK:
         drawBlock(&o[i]);
+        break;
+      case SPIKE:
+        drawSpike(&o[i]);
         break;
       default:
         o[i].width = 0;
