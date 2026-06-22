@@ -1,14 +1,19 @@
 #include "logicHandler/logic.h"
+#include "object/mainObject.h"
 #include "structure.h"
 #include <ncurses.h>
 #include <panel.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <unistd.h>
 
-#define FRAME_CAP 10667
+#define FRAME_CAP 16667
 
 int main(int argc, char *argv[]) {
+  srand(time(NULL));
+
   initscr();
   cbreak();
   noecho();
