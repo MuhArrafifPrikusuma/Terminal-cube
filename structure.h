@@ -1,6 +1,12 @@
 #ifndef STRUCTURE_H
 #define STRUCTURE_H
 
+#define GRAVITY 0.12
+#define JUMP_FORCE -1.3
+#define FLOOR_Y 20
+#define SCROLL_SPEED 0.5
+#define MAX_O 10
+
 #include <ncurses.h>
 #include <stdbool.h>
 

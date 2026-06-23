@@ -5,9 +5,6 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-// TODO: tweak this later to make sure it feels just like the geoDash
-// TODO: if a block is gone from view then NULL everything it has and also don't
-// forget to make sure blocks doesn't spawn too close to each other
 // update player state and position
 void updatePlayer(Player *p, int ch) {
   if (p->state.is_grounded &&
@@ -30,7 +27,6 @@ void updatePlayer(Player *p, int ch) {
   }
 }
 
-// erase and redraw everything
 void render(Player *p, Object *o) {
   erase();
 
