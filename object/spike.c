@@ -5,6 +5,7 @@ void drawSpike(Object *o) {
   int height = 4;
 
   int spawnPos = 19;
+  mvaddch(spawnPos + 1, o->x, '^');
   for (int i = 1; i < height - 1; i++) {
     mvaddch(spawnPos + i, o->x - i, '/');
     mvaddch(spawnPos + i, o->x + i, '\\');
