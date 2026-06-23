@@ -4,7 +4,6 @@
 #include <ncurses.h>
 #include <panel.h>
 #include <stdbool.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
@@ -46,7 +45,9 @@ int main(int argc, char *argv[]) {
 
     usleep(FRAME_CAP);
   }
+
   delwin(player.win);
+  erase();
   endwin();
 
   return 0;
