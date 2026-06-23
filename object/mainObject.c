@@ -2,6 +2,7 @@
 #include "mainObject.h"
 #include "../logicHandler/logic.h"
 #include "spike.h"
+#include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -44,13 +45,15 @@ void handleCollision(Player *p, Object *o) {
       switch ((int)o[i].type) {
       case BLOCK:
         if (p->velocity_y >= 0 && previous_bottom_position <= o[i].y + 1) {
-          p->y = o[i].y - p->height;
+          p->y = o[i].y - p->height + 1;
 
           p->velocity_y = 0;
           found_Platform = true;
         } else
           p->state.is_dead = true;
         break;
+      case SPIKE:
+        p->state.is_dead = true;
       }
     }
   }

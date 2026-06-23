@@ -4,12 +4,13 @@
 void drawSpike(Object *o) {
   int height = 4;
 
+  int spawnPos = 19;
   for (int i = 1; i < height - 1; i++) {
-    mvaddch(o->y + i, o->x - i, '/');
-    mvaddch(o->y + i, o->x + i, '\\');
+    mvaddch(spawnPos + i, o->x - i, '/');
+    mvaddch(spawnPos + i, o->x + i, '\\');
   }
 
-  int base_y = o->y + height - 1;
+  int base_y = spawnPos + height - 1;
   int left_x = o->x - height + 1;
   int right_x = o->x + height - 1;
 
@@ -24,9 +25,8 @@ void drawSpike(Object *o) {
 void spawnSpike(Object *o, int objectIndex) {
   int i = objectIndex;
 
-  for (int j = 0; j < 1; j++) {
-
-    o[i].y = 19;
-    o[i].type = SPIKE;
-  }
+  o[i].y = 22;
+  o[i].height = 1;
+  o[i].width = 2;
+  o[i].type = SPIKE;
 }
