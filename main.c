@@ -1,6 +1,7 @@
 #include "logicHandler/logic.h"
 #include "object/mainObject.h"
 #include "structure.h"
+#include <locale.h>
 #include <ncurses.h>
 #include <panel.h>
 #include <stdbool.h>
@@ -18,6 +19,7 @@ int main(int argc, char *argv[]) {
   noecho();
   nodelay(stdscr, TRUE);
   curs_set(0);
+  setlocale(LC_ALL, ""); // take host local unicode
 
   Player player;
   player.x = 10.0;

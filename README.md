@@ -1,7 +1,6 @@
 # Just a small side project
-  Built entirely in C using ncurses without any game library so i basically made the physics and hitbox tracking. All of the objects is 
-  procedurally generated but it's still completely random so i will make it more predictable later. 
-
+  Built entirely in C using ncurses without any game library. All of the objects is 
+  made with ASCII and braille characters.
 ## How to run
 
   compile with CMake
@@ -10,3 +9,4 @@
     cmake -B build build
     ./tuiDash
 
+  Why can't ncurses just have a slope? do i need to make it by myself?

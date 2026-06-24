@@ -67,7 +67,6 @@ static void spawnObj(Object *o) {
 
   for (int i = 0; i < MAX_O; i++) {
     if (o[i].width == 0 || o[i].x < -5) {
-
       if (lastSpawn - isDouble < -9)
         return;
       if (rand() % 100 > 2) {
@@ -114,7 +113,7 @@ void handleObj(Object *o) {
         drawBlock(&o[i]);
         break;
       case SPIKE:
-        drawSpike(&o[i]);
+        draw_spike(&o[i]);
         break;
       default:
         o[i].width = 0;
