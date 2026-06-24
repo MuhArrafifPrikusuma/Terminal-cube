@@ -5,6 +5,4 @@
   2. Give rules for terrain generation
   3. Add platform Object
 
-## Fixes
 
-  1. Stupidly ugly spike

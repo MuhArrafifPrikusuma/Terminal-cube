@@ -5,5 +5,6 @@
 
 void drawSpike(Object *o);
 void spawnSpike(Object *o, int objectIndex);
+void draw_spike(Object *o);
 
 #endif // !TRIANGLE_H

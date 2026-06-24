@@ -1,3 +1,5 @@
+#define _XOPEN_SOURCE 500
+
 #ifndef STRUCTURE_H
 #define STRUCTURE_H
 
