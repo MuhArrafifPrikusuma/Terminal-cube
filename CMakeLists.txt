@@ -10,6 +10,7 @@ add_executable(tuiDash
     "${CMAKE_CURRENT_SOURCE_DIR}/object/mainObject.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/object/block.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/object/spike.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/gameOverScr.c"
 )
 
 # 2. Tell CMake precisely where to look for logic.h

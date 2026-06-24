@@ -1,3 +1,4 @@
+#include "gameOverScr.h"
 #include "logicHandler/logic.h"
 #include "object/mainObject.h"
 #include "structure.h"
@@ -11,6 +12,9 @@
 
 #define FRAME_CAP 16667
 
+static void whenAlive(Player *p, Object *o);
+static void whenDead(Player *p, Object *o);
+
 int main(int argc, char *argv[]) {
   srand(time(NULL));
 
@@ -23,7 +27,6 @@ int main(int argc, char *argv[]) {
 
   Player player;
   player.x = 10.0;
-  player.y = 20.0;
   player.height = 3;
   player.width = 5;
   player.velocity_y = 0;
@@ -35,17 +38,13 @@ int main(int argc, char *argv[]) {
 
   Object object[10] = {0};
 
-  while (!player.state.is_dead) {
-    int ch = getch();
-
-    updatePlayer(&player, ch);
-
-    handleCollision(&player, object);
-    handleObj(object);
-
-    render(&player, object);
-
-    usleep(FRAME_CAP);
+  while (1) {
+    if (player.state.is_dead)
+      erase();
+    if (!player.state.is_dead)
+      whenAlive(&player, object);
+    else
+      whenDead(&player, object);
   }
 
   delwin(player.win);
@@ -53,4 +52,23 @@ int main(int argc, char *argv[]) {
   endwin();
 
   return 0;
+}
+
+static void whenAlive(Player *p, Object *o) {
+  int ch = getch();
+
+  updatePlayer(p, ch);
+
+  handleCollision(p, o);
+  handleObj(o);
+
+  render(p, o);
+
+  usleep(FRAME_CAP);
+}
+static void whenDead(Player *p, Object *o) {
+  int ch = getch();
+
+  gameOver(ch, p, o);
+  refresh();
 }
