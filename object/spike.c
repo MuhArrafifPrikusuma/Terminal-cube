@@ -45,8 +45,8 @@ static void render_spike_to_canvas(int startX, int startY) {
       // wchar_t is for system characters
       if (braille_offset > 0) {
         /*
-         * 0x2800 = 00101000000000 + braille_offset for example
-         * 0x2800 + 0x18 = 00101000011010
+         * 0x2800 = 0010100000000000 + braille_offset for example
+         * 0x2800 + 0x18 = 0010100001101000
          * check U+2800 https://unicode-explorer.com/b/2800 for example
          */
         wchar_t braille_char = 0x2800 + braille_offset;
