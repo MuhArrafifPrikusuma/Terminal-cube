@@ -30,7 +30,7 @@ void updatePlayer(Player *p, int ch) {
 void render(Player *p, Object *o) {
   erase();
 
-  mvhline(22, 0, '-', 81);
+  mvhline(22, 0, '-', 90);
 
   handleObj(o);
 

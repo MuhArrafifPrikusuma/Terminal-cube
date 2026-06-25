@@ -93,7 +93,7 @@ void gameOver(int c, Player *p, Object *o){
 
 static void print_menu(WINDOW* w, int hightlight){
 int i = 0;
-  int x= 6 / 2 + 3;
+  int x= 6 / 2 + 5;
   int y = 6 / 2 - choicesLen;
 
   for (i = 0; i < choicesLen; i++) {
