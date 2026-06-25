@@ -1,6 +1,6 @@
 
 #include "mainObject.h"
-#include "../logicHandler/logic.h"
+#include "../logicHandler/objectHandler.h"
 #include "spike.h"
 #include <stdbool.h>
 #include <stdlib.h>
@@ -21,6 +21,13 @@ static bool checkCollision(Player *p, Object *o) {
     return false;
   }
   return true;
+}
+
+static void spawnObj(Object *o) {
+
+  int isDouble = 0;
+  int lastSpawn = 0;
+  object_spawn_logic(o);
 }
 
 void handleCollision(Player *p, Object *o) {
@@ -58,40 +65,6 @@ void handleCollision(Player *p, Object *o) {
     }
   }
   p->state.is_grounded = found_Platform;
-}
-
-static void spawnObj(Object *o) {
-
-  int isDouble = 0;
-  int lastSpawn = 0;
-
-  for (int i = 0; i < MAX_O; i++) {
-    if (o[i].width == 0 || o[i].x < -5) {
-      if (lastSpawn - isDouble < -9)
-        return;
-      if (rand() % 100 > 2) {
-        isDouble++;
-        return;
-      }
-
-      int type_roll = rand() % 4;
-      o[i].x = 90;
-
-      switch (type_roll) {
-      case 0:
-        spawnBlock(o, i);
-        break;
-      case 1:
-        spawnSpike(o, i);
-        break;
-      case 2:
-        break;
-      default:
-        break;
-      }
-    }
-    lastSpawn = isDouble;
-  }
 }
 
 static void updateObj(Object *o) {
