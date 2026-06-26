@@ -1,4 +1,4 @@
-# Just a small side project
+# Just a small fun project
   Built entirely in C using ncurses without any game library. All of the objects is 
   made with ASCII and braille characters.
 ## How to run
