@@ -58,6 +58,7 @@ void gameOver(int c, Player *p, Object *o){
       break;
 
         case 10:
+        case ' ':
       choice = hightlight;
       break;
         default:
